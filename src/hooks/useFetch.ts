@@ -15,7 +15,6 @@ export function useTodos() {
 
         const json = await res.json();
 
-        // normalize ONCE, here
         const todosArray = Array.isArray(json)
           ? json
           : Array.isArray(json?.data)
@@ -24,8 +23,12 @@ export function useTodos() {
 
         setTodos(todosArray);
       } catch (err) {
-        setError(err.message);
-        setTodos([]); // ensure array invariant
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Unexpected error occurred");
+        }
+        setTodos([]);
       } finally {
         setLoading(false);
       }
