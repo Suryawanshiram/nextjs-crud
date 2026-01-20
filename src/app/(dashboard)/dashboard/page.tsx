@@ -11,7 +11,7 @@ export default function DashboardPage() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
-  console.log(todos);
+  // console.log(todos);
 
   const addTodo = (todo: Todo) => {
     setTodos((prev) => [todo, ...prev]);
@@ -28,7 +28,6 @@ export default function DashboardPage() {
     setTodos((prev) => prev.filter((t) => t._id !== id));
   };
 
-  console.log(todos);
   return (
     <>
       <div className="flex justify-between items-center mb-4">
