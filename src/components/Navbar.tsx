@@ -5,19 +5,11 @@ const Navbar = () => {
     <div>
       <header className="flex shadow-md py-4 px-4 sm:px-10 bg-white min-h-17.5 tracking-wide relative z-50">
         <div className="flex flex-wrap items-center justify-between gap-5 w-full">
-          <a href="javascript:void(0)" className="max-sm:hidden">
-            <img
-              src="https://readymadeui.com/readymadeui.svg"
-              alt="logo"
-              className="w-36"
-            />
+          <a href="" className="max-sm:hidden">
+            <img src="./logo.png" alt="logo" className="w-16 rounded-2xl" />
           </a>
-          <a href="javascript:void(0)" className="hidden max-sm:block">
-            <img
-              src="https://readymadeui.com/readymadeui-short.svg"
-              alt="logo"
-              className="w-9"
-            />
+          <a href="" className="hidden max-sm:block">
+            <img src="./logo.png" alt="logo" className="w-9" />
           </a>
 
           <div
@@ -46,17 +38,13 @@ const Navbar = () => {
 
             <ul className="lg:flex gap-x-4 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-75 max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
               <li className="mb-6 hidden max-lg:block">
-                <a href="javascript:void(0)">
-                  <img
-                    src="https://readymadeui.com/readymadeui.svg"
-                    alt="logo"
-                    className="w-36"
-                  />
+                <a href="">
+                  <img src="./logo.png" alt="logo" className="w-36" />
                 </a>
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="hover:text-blue-700 text-blue-700 block font-medium text-[15px]"
                 >
                   Home
@@ -64,7 +52,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
                 >
                   Team
@@ -72,7 +60,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
                 >
                   Feature
@@ -80,7 +68,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
                 >
                   Blog
@@ -88,7 +76,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
                 >
                   About
@@ -96,10 +84,10 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                 <a
-                  href="javascript:void(0)"
+                  href="/dashboard"
                   className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
                 >
-                  Contact
+                  Dashboard
                 </a>
               </li>
             </ul>

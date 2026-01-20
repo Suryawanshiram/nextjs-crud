@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 items-center gap-x-12 gap-y-16">
                 <div className="max-lg:text-center">
                   <h1 className="md:text-5xl text-4xl leading-tight! font-bold text-slate-900 mb-6">
-                    Experience Future of Dining with AI
+                    Experience Future of Dining with AI CRUD App
                   </h1>
                   <p className="text-base text-slate-600 leading-relaxed">
                     Discover a smarter way to order, crafted by artificial
@@ -25,13 +26,13 @@ export default function Home() {
                       href="javascript:void(0);"
                       className="px-6 py-3 text-base font-semibold text-white border border-violet-600 bg-violet-600 hover:bg-violet-700 rounded-full transition-all focus:outline-none"
                     >
-                      Explore Our Menu
+                      Explore Our Todos
                     </a>
                     <a
                       href="javascript:void(0);"
                       className="px-6 py-3 text-base font-semibold text-violet-700 border border-violet-600 rounded-full hover:bg-gray-100 transition-all focus:outline-none"
                     >
-                      Order Now
+                      Create Now
                     </a>
                   </div>
                 </div>
@@ -47,6 +48,7 @@ export default function Home() {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
