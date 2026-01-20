@@ -3,6 +3,7 @@ import connectDB from "@/lib/db";
 import { auth } from "@/lib/auth";
 import { Todo } from "@/models/items";
 import { createTodoSchema } from "@/lib/validators";
+import mongoose from "mongoose";
 
 export async function GET() {
   await connectDB();
@@ -43,6 +44,46 @@ export async function POST(req: Request) {
   });
 
   return NextResponse.json(todo, { status: 201 });
+}
+
+export async function DELETE(
+  _req: Request,
+  context: { params: Promise<{ id: string }> },
+) {
+  try {
+    await connectDB();
+
+    const session = await auth();
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // 🔥 IMPORTANT: unwrap params
+    const { id } = await context.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: "Invalid todo id" }, { status: 400 });
+    }
+
+    const deletedTodo = await Todo.findOneAndDelete({
+      _id: id,
+      userId: session.user.id,
+    });
+
+    if (!deletedTodo) {
+      return NextResponse.json({ error: "Todo not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(
+      { message: "Todo deleted successfully" },
+      { status: 200 },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to delete todo" },
+      { status: 500 },
+    );
+  }
 }
 
 // import connectDB from "@/lib/db";

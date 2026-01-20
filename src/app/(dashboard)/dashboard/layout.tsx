@@ -12,7 +12,11 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  return <>{children}</>;
+  return (
+    <div className="min-h-screen border p-4 max-w-7xl w-full mx-auto">
+      {children}
+    </div>
+  );
 }
 
 // import { cookies } from "next/headers";
