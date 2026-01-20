@@ -1,27 +1,40 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useTodos } from "@/hooks/useFetch";
 
-const Dashboard = () => {
-  const router = useRouter();
+export default function DashboardPage() {
+  const { todos, loading, error } = useTodos();
 
-  const logout = async () => {
-    await fetch("/api/users/logout", { method: "POST" });
-    router.push("/");
-  };
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-
-      <button
-        onClick={logout}
-        className="mt-6 px-4 py-2 bg-red-600 text-white rounded cursor-pointer"
-      >
-        Logout
-      </button>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {todos.map((todo) => (
+        <div key={todo._id} className="border p-4 rounded">
+          {todo.title}
+        </div>
+      ))}
     </div>
   );
-};
+}
 
-export default Dashboard;
+// "use client";
+
+// import { useTodos } from "@/hooks/useFetch";
+
+// export default function DashboardPage() {
+//   const { todos, loading, error } = useTodos();
+//   console.log(todos);
+
+//   if (loading) return <div>Loading...</div>;
+//   if (error) return <div>{error}</div>;
+
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//       {todos?.map((todo) => (
+//         <div key={todo._id}>{todo?.title}</div>
+//       ))}
+//     </div>
+//   );
+// }

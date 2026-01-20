@@ -12,32 +12,30 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors: formErrors },
+    formState: { errors },
   } = useForm<FormData>();
 
   const router = useRouter();
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (formData: FormData) => {
     try {
       const res = await fetch("/api/users/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+        credentials: "include", // ✅ REQUIRED
       });
 
       const result = await res.json();
 
       if (!res.ok) {
-        console.log("Login failed:", result);
+        console.error("Login failed:", result.error);
         return;
       }
 
-      console.log("Login success:", result);
       router.push("/dashboard");
     } catch (error) {
-      console.log("Error:", error);
+      console.error("Login error:", error);
     }
   };
 
